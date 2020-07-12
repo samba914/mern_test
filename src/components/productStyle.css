@@ -8,11 +8,12 @@
     box-sizing: border-box;
   }
   body {
-    background: #f9fafa;
+    background: beige;
     padding: 20px;
+    line-height: unset;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+ 
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -113,10 +114,15 @@
   }
   .style {
     font-size: 16px;
+    color: gray;
     margin-bottom: 20px;
   }
-  .old-price {
-    color: #f00;
-    text-decoration: line-through;
-  }
+ 
   
+  #myInput{
+    width: 30%;
+    padding: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }

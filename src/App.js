@@ -14,6 +14,7 @@ function App() {
     <Navbar/>
     <br/>
     <Route path="/" exact component={ProductsList} />
+     
  </Router>
   );
 }
