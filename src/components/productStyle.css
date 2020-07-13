@@ -66,6 +66,12 @@
   .middle img {
     width: 100%;
   }
+  .block:hover{
+    -webkit-transform: scale(1.06);
+        transform: scale(1.06);
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease
+  }
   .bottom {
     text-align: center;
     display: -webkit-box;

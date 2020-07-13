@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+ import "bootstrap/dist/css/bootstrap.min.css.map";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {Helmet} from "react-helmet";
 import { runInThisContext } from 'vm';
 import "./productStyle.css";
-import ReactDOM from 'react-dom'
+import BootstrapCarouselDemo from './BootstrapCarouselDemo' ;
 var i=0;
 
 const Product = props => (
@@ -86,7 +87,7 @@ export default class ProductsList extends Component {
             }
             );
 
-            
+         
                 var input= document.getElementById("myInput");
                     input.addEventListener("keyup",function() {
                    
@@ -125,6 +126,10 @@ export default class ProductsList extends Component {
         
         return (
             <div>
+                 <div className="App">  
+                 <BootstrapCarouselDemo></BootstrapCarouselDemo>  
+                  </div> 
+                
                 <div className="classSearch">
                 <input type="text" placeholder="Search.." id="myInput"></input>
                 </div>
@@ -139,11 +144,9 @@ export default class ProductsList extends Component {
                 <Helmet>
                         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
                         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-                        <script>
-                            
-
-                        </script>
+                        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+                        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                        
                       
                     </Helmet>
             </div>
