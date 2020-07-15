@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default class ViewProduct extends Component {
   constructor(props) {
     super(props);
-
+    this.state = { imageStatus: "loading" };
     this.state = {
       title: '',
       description: '',
@@ -23,8 +23,11 @@ export default class ViewProduct extends Component {
   }
 
   componentDidMount() {
+
     axios.get('https://stockx.com/api/products/'+this.props.match.params.id+'?includes=market,360&currency=EUR&country=FR')
       .then(response => {
+          
+       
         
          this.setState({
  
@@ -41,18 +44,22 @@ export default class ViewProduct extends Component {
       .catch(function (error) {
         console.log(error);
       })
+   
 
-   /* axios.get('http://localhost:5000/users/')
-      .then(response => {
-        if (response.data.length > 0) {
-          this.setState({
-            users: response.data.map(user => user.title),
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })*/
+
+  //   const img=document.getElementById('test');
+     
+ 
+  }
+
+  handleImageLoaded() {
+
+    this.setState({ imageStatus: "loaded" });
+  }
+
+  handleImageErrored() {
+    this.setState({ imageStatus: "failed to load", 
+                    photo: "https://stockx-assets.imgix.net/media/New-Product-Placeholder-Default.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=false"});
 
   }
 
@@ -66,13 +73,17 @@ export default class ViewProduct extends Component {
         <div className="row">
             <div className="col-md-6 allcontent">
                 <div id="slider" className="product-slider">
-                    <div className="item">
-                          <img class="photo"src= {this.state.photo} />
+                    <div className="item" id="test2">
+                          <img  id= "test" class="photo"src= {this.state.photo} alt="test" onLoad={this.handleImageLoaded.bind(this)}
+          onError={this.handleImageErrored.bind(this)}
+        />
+      
                     </div>
                     <div className="col-md-6">
                 <div className="product-dtl">
                     <div className="product-info">
                         <div className="product-name">{this.state.title}</div>
+                       
                         <div className="reviews-counter">
                             <div className="rate">
                                 <input type="radio" id="star5" name="rate" value="5" checked />
@@ -115,6 +126,7 @@ export default class ViewProduct extends Component {
                                 {this.state.gender}
                             </span>
                         </div>
+                       
                     </div>
                     <div className="product-count">
                         <a href="#" className="round-black-btn">Buy Now</a>

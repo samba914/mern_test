@@ -9,6 +9,7 @@ import BootstrapCarouselDemo from './BootstrapCarouselDemo' ;
 import { black } from 'color-name';
 
 
+
 const Product = props => (
 
    
@@ -29,7 +30,8 @@ const Product = props => (
 
         
         <div className="middle">
-        <img src={props.product.media.smallImageUrl} alt="pic" />
+        <img class="test" src={props.product.media.smallImageUrl} alt="pic" onLoad={function(){console.log("test")}}
+          onError={function(){var img=document.getElementsByClassName("test");for (let i = 0; i < img.length; i++) {img[i].src="https://stockx-assets.imgix.net/media/New-Product-Placeholder-Default.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=false"}}}/>
         </div>
         
 
